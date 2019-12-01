@@ -1,0 +1,51 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <!-- Back Buttom -->
+    <ion-buttons color="primary" slot="start">
+      <ion-back-button icon="arrow-back">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form class="form" [formGroup]="validations_form" (ngSubmit)="tryRegister(validations_form.value)">
+    <ion-item>
+      <ion-label position="floating" color="primary">Email</ion-label>
+      <ion-input type="text" [(ngModel)]="register.email" formControlName="email"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div class="error-message"
+          *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating" color="primary">Password</ion-label>
+      <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="error-message"
+          *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <hr>
+    <div class="div-checkbutton" slot="start">
+      <ion-checkbox formControlName="isTeacher" [(ngModel)]="register.isTeacher" required></ion-checkbox>
+      <ion-label class="label-checkbutton" color="primary">É professor?</ion-label>
+    </div>
+    <br>
+
+    <ion-button class="submit-btn" expand="full" type="submit" [disabled]="!validations_form.valid">Register
+    </ion-button>
+    <label class="error-message">{{errorMessage}}</label>
+    <label class="success-message">{{successMessage}}</label>
+  </form>
+</ion-content>

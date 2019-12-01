@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button color="light" (click)="closeModal()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Perguntas cadastradas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let quest of questions">
+    <ion-list-header>
+      {{quest[0]}}
+    </ion-list-header>
+
+    <ion-item *ngFor="let questions of questionsResps">
+      <ion-label>
+        <h2>{{questions}}</h2>
+        <h3>{{questions}}</h3>
+        <p>{{questions}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "Matik",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

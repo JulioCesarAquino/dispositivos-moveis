@@ -1,0 +1,20 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title color="primary">
+      Ranking
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let rankItem of arrRanking; let i = index;">
+    <ion-item>
+      <ion-label>
+        <span>
+          #{{i + 1}}
+        </span>&nbsp;{{rankItem.nameChapa.substring(0, 19)}}...</ion-label>
+        <ion-icon *ngIf="i === 0" class="the-great" name="trophy"></ion-icon>
+      <h5>{{rankItem.score}}<br><span>Score</span></h5>
+    </ion-item>
+  </ion-card>
+</ion-content>

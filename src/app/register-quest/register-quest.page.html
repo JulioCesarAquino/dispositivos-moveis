@@ -1,0 +1,90 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title color="primary">
+      Elaborar perguntas e respostas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Textarea in an item with a floating label -->
+  <ion-item class="txt-areas">
+    <ion-label position="floating">Inserir texto da questao</ion-label>
+    <ion-textarea rows="6" [(ngModel)]="register.quest"></ion-textarea>
+  </ion-item>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Selecione dicas para ajudar os alunos.</ion-card-subtitle>
+      <ion-card-title>Dicas para as perguntas:</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Primeira</ion-label>
+        <ion-textarea rows="2" [(ngModel)]="register.dic1"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Segunda</ion-label>
+        <ion-textarea rows="2" [(ngModel)]="register.dic2"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Terceira</ion-label>
+        <ion-textarea rows="2" [(ngModel)]="register.dic3"></ion-textarea>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Selecione as respostas da pergunta</ion-card-subtitle>
+      <ion-card-title>Respostas das perguntas:</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Resposta 1 :</ion-label>
+        <ion-textarea [(ngModel)]="register.answerOne"></ion-textarea>
+        <ion-checkbox [value]="1" [(ngModel)]="register.isOne" slot="end"></ion-checkbox>
+      </ion-item>
+
+      <br>
+      <ion-item>
+        <ion-label>Resposta 2: </ion-label>
+        <ion-textarea [(ngModel)]="register.answerTwo"></ion-textarea>
+        <ion-checkbox [value]="2" [(ngModel)]="register.isTwo" slot="end"></ion-checkbox>
+      </ion-item>
+
+      <br>
+      <ion-item>
+        <ion-label>Resposta 3: </ion-label>
+        <ion-textarea [(ngModel)]="register.answerTree"></ion-textarea>
+        <ion-checkbox [value]="3" [(ngModel)]="register.isTree" slot="end"></ion-checkbox>
+      </ion-item>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header>Selecione uma serie:</ion-list-header>
+      <ion-item>
+        <ion-label>Serie</ion-label>
+        <ion-select placeholder="Selecione" [(ngModel)]="register.serie">
+          <ion-select-option *ngFor="let classes of classesArr" [value]="classes.seriesId">{{classes.seriesName}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <hr>
+  <ion-button expand="block" color="dark" class="btn-margin" (click)="insertQuest()">Cadastrar pergunta</ion-button>
+  <br>
+  <br>
+  <br>
+  <!-- <ion-button expand="full" color="dark" (click)="presentModal()">Ver perguntas existentes</ion-button> -->
+
+</ion-content>

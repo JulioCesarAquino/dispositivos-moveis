@@ -1,0 +1,20 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom" color="primary">
+    <ion-tab-button tab="classes">
+      <ion-icon name="play"></ion-icon>
+      <ion-label>Jogar</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="ranking">
+      <ion-icon name="trophy"></ion-icon>
+      <ion-label>Ranking</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="register-quest" *ngIf="isTeacheFlag === '1'">
+      <ion-icon name="apps"></ion-icon>
+      <ion-label>Elaborar Perguntas</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

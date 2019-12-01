@@ -1,0 +1,30 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="light" (click)="closeModal()">
+        <ion-icon color="primary" slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="primary">{{nameClassToShow}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="haveQuestion === '1'">
+    <div class="quest-text">
+      <h6>Pergunta: </h6>
+      <div>
+        {{questionRandom.quest}}
+      </div>
+    </div>
+    <br>
+    <h6 class="remain-time">Tempo restante: {{timeRemain}}</h6>
+    <br>
+    <ion-button expand="full" color="primary" (click)="replyQuestion(questionRandom.isOne)">{{questionRandom.answerOne}}
+    </ion-button>
+    <ion-button expand="full" color="primary" (click)="replyQuestion(questionRandom.isTwo)">{{questionRandom.answerTwo}}
+    </ion-button>
+    <ion-button expand="full" color="primary" (click)="replyQuestion(questionRandom.isTree)">{{questionRandom.answerTree}}      
+    </ion-button>
+  </div>  
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons color="primary" slot="start">
+      <ion-button color="primary" (click)="logoutUserLogged()">
+        <ion-icon slot="start" name="exit"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="primary">
+      Escolher série
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="body-series">
+    <ion-card *ngFor="let classes of classesArr"
+      (click)="presentModalChooseMethod(classes.seriesName, classes.serieId)">
+      <ion-card-header>
+        <ion-avatar slot="start">
+          <img src="./avatar-finn.png">
+        </ion-avatar>
+        <ion-card-subtitle>{{ classes.seriesClassification }}</ion-card-subtitle>
+        <ion-card-title>{{ classes.seriesName }}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+</ion-content>
